@@ -1,5 +1,6 @@
 p{
     color: black;
+    font-weight: bold;
 }
 
 .item {
@@ -7,8 +8,4 @@ p{
     text-align: center;
     margin: 10px;
     padding: 12px;
-}
-
-.item:hover {
-    background-color: lavender;
 }
