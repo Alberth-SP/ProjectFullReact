@@ -12,6 +12,7 @@ class App extends Component {
  
   render() {
     return <div>
+      <h1> Lista de Barrios</h1>
       <Data listData={this.state.data}/>
 
     </div>
