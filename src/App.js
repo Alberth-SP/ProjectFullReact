@@ -4,6 +4,8 @@ import data from './dataset/data.json';
 import Data from './components/Data';
 import DataForm from './components/DataForm';
 
+import Comments from './components/Comments';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 class App extends Component {
 
   state = {
@@ -44,21 +46,25 @@ class App extends Component {
   }
  
   render() {
-    return <div>
-      <h1> Lista de Barrios</h1>
-      <div className="father">
-        <div  > <DataForm addData={this.addData} /> </div> 
-        <div className="child2" > 
-          
-          <Data  
-            listData={this.state.data}
-            deleteData={this.deleteData}
-            updateData={this.updateData}
-          /> 
-        </div>
+    return (
+      <div>
+        <h1> Lista de Barrios</h1>
+          <div className="father">
+            <div  > <DataForm addData={this.addData} /> </div> 
+            <div className="child2" > 
+              
+              <Data  
+                listData={this.state.data}
+                deleteData={this.deleteData}
+                updateData={this.updateData}
+              /> 
+            </div>
+            
+          </div>
       </div>
-    </div>
-  }
+    )}        
+      
+
 }
 
 export default App;

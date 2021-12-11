@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Comments  from './components/Comments';
 
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={ <App/>}>
+
+        </Route>
+        <Route exact path="/comments" element={ <Comments/> }>
+
+        </Route>
+      </Routes>
+    </Router>
+  </div>
+   ,
   document.getElementById('root')
 );
 
