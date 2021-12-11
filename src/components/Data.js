@@ -5,7 +5,13 @@ class Data extends Component {
 
     render() {
         return <div>
-            { this.props.listData.map( (it) => <Item item={it}  key={it.id} /> ) }
+            { this.props.listData.map( (it) => 
+                <Item 
+                    item={it}  
+                    key={it.id}  
+                    deleteData={this.props.deleteData}
+                    updateData={this.props.updateData}
+                /> ) }
         </div>
     } 
 }

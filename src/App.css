@@ -1,3 +1,16 @@
 h1 {
     text-align: center;
 }
+
+
+.father{
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+.child2{
+    grid-column: 2/4;
+}
+
