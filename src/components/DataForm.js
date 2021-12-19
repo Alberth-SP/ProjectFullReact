@@ -1,75 +1,74 @@
 import React , {Component } from 'react';
-
+import {connect} from 'react-redux';
+import { addData } from '../redux/actions/item';
+import {Formik, Form, Field, FieldProps} from 'formik';
 
 class DataForm extends Component {
 
-    state = {
-        code: '',
-        name: '',
-        danger: ''
-        
-    }
-
-    onSubmit = (e) => {
-        this.props.addData(this.state.code,this.state.name, this.state.danger);
-        e.preventDefault();
-
-    }
-
-    onChange = (e) =>{
-        
-        if(e.target.name === 'danger'){
-            this.setState({
-                [e.target.name] : e.target.checked
-            })
-
-        }
-        else{
-            this.setState({
-                [e.target.name]: e.target.value
-            })
-        }
-        
-    }
-
-
     render() {
         return (
-            <div className="formulario">
-                <h3> Agregar Barrio </h3>
-                <form  onSubmit={this.onSubmit}>
-                    <input 
-                        type="text" 
-                        placeholder="Code" 
-                        onChange={this.onChange}
-                        name="code"
-                        value={this.state.code}
-                    />
-                    <br/><br/>
-                    <input 
-                        type="text"  
-                        placeholder="Name"
-                        onChange={this.onChange} 
-                        name="name"
-                        value={this.state.name}
-                    />
-                    <br/><br/>
-                    <label>
-                        Dangerous
-                        <input 
-                            type="checkbox" 
-                            name="danger" 
-                            onChange={this.onChange} 
-                            value={this.state.danger}
+            <>
+            
+            <Formik 
+                initialValues={{
+                    code: "",
+                    name: "",
+                    danger: false
+                }}
+                onSubmit={ (values, {resetForm}) => {               
+                    this.props.addData(values);
+                    resetForm();
+                } } 
+            >
+                { ({values, handleSubmit, handleChange}) => (
+                    
+                    <Form className="formulario">
+                        <h1> Form </h1>
+                        <div className="for_input1">
+                            <label htmlFor="code"> Code</label>
+                            <Field 
+                                type="text" 
+                                placeholder="Code" 
+                                name="code"
+
+                            />
+                        </div>
+                        <div v className="for_input1">
+                            <label htmlFor="name">Name</label>
+                            <Field 
+                                type="text"  
+                                placeholder="Name"
+                                name="name"
                         />
-                    </label>
-                    <br/><br/>
-                    <input type="submit" value="Crear" />
-                </form>
-            </div>
+                        </div>
+                        <div v className="for_input2" >
+                            <label htmlFor='danger'>Danger</label>
+                            <Field 
+                                type="checkbox" 
+                                name="danger"
+                            />
+                        </div>
+                        <button type="submit"> Create</button>
+                    </Form>
+
+                )}
+                
+                
+            </Formik>
+            </>
             
         )
     }
 }
 
-export default DataForm;
+
+
+function mapDispatchToProps(dispatch){
+    return {
+        addData: (val) => dispatch(addData(val))
+    }
+}
+
+const wrapper = connect(null, mapDispatchToProps);
+const cmpDataForm = wrapper(DataForm);
+export default cmpDataForm;

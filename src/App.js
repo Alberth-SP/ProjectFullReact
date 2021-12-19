@@ -1,13 +1,16 @@
 import React, {Component} from "react";
 import "./App.css";
 import data from './dataset/data.json';
-import Data from './components/Data';
+import  Data  from './components/Data';
 import DataForm from './components/DataForm';
-
+import Test from './components/Test';
 import Comments from './components/Comments';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
 class App extends Component {
 
+
+  /*
   state = {
     data
   }
@@ -44,26 +47,26 @@ class App extends Component {
 
     this.setState({ data: dts})
   }
+  */
+
+
  
   render() {
     return (
       <div>
         <h1> Lista de Barrios</h1>
           <div className="father">
-            <div  > <DataForm addData={this.addData} /> </div> 
-            <div className="child2" > 
-              
-              <Data  
-                listData={this.state.data}
-                deleteData={this.deleteData}
-                updateData={this.updateData}
-              /> 
+            <div  > 
+              <DataForm  />
+              </div> 
+            <div className="child2" >               
+              <Data /> 
             </div>
             
           </div>
       </div>
-    )}        
-      
+    )}  
+    
 
 }
 

@@ -4,20 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Comments  from './components/Comments';
+import { Provider } from 'react-redux';
+import store from './redux/store'
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 ReactDOM.render(
   <div>
-    <Router>
-      <Routes>
-        <Route exact path="/" element={ <App/>}>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={ <App/>}>
 
-        </Route>
-        <Route exact path="/comments" element={ <Comments/> }>
+          </Route>
+          <Route exact path="/comments" element={ <Comments/> }>
 
-        </Route>
-      </Routes>
-    </Router>
+          </Route>
+        </Routes>
+      </Router>
+    </Provider>
+    
   </div>
    ,
   document.getElementById('root')

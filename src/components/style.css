@@ -10,13 +10,62 @@ p{
     padding: 12px;
 }
 
+.item>button {
+    margin-left: 10px;
+}
 
 .formulario {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius:15px;
-    text-align: center;
-    margin: 0px 20px;
-    padding: 0px 0px 20px 0px;;
+    margin: 20px 20px;
+    padding: 0px 30px 10px 30px;
+}
+.for_input1 {
+    margin-top: 10px;
+}
+
+.for_input1 label{
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    color:#1f1f1f;
+}
+.for_input1 input{
+    border-radius: 5px;
+    border: 2px solid #e2e2e2;
+    height: 30px;
+    width: 100%;;
+    font-size: 14px;
+    color: #1f1f1f;
+}
+
+.for_input2 {
+    font-weight: bold;
+    display: inline;
+    font-size: 18px;
+    color:#1f1f1f;
+    margin-top: 30px;
+
+}
+
+.for_input2 input{
+    border-radius: 5px;
+    border: 2px solid #e2e2e2;
+    width: 60px;
+    height: 20px;
+    color: #1f1f1f;
+}
+
+.formulario button{
+    margin-top: 5px;
+    height: 40px;
+    width: 100%;
+}
+
+.formulario h1{
+    font-size:30px;
+    margin-bottom: 0px;
 }
 
 .comment {

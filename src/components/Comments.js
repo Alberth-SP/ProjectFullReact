@@ -8,11 +8,9 @@ class Comments extends Component {
     }
 
     async componentDidMount(){
-        console.log("iniciando componentes");
 
         const res = await fetch('https://jsonplaceholder.typicode.com/posts');
         const data = await res.json();
-        console.log(data);
         this.setState({data});
 
     }
@@ -22,13 +20,12 @@ class Comments extends Component {
         return (
             <div>
                 <h2> Comments </h2>
-            { this.state.data.map( it => {
-                return  <div className="comment" key={it.id}>
-                    <h3>{ it.title }</h3>
-                    <p> { it.body }</p>
-                </div>
-
-            }) }
+                { this.state.data.map( it => {
+                    return  <div className="comment" key={it.id}>
+                        <h3>{ it.title }</h3>
+                        <p> { it.body }</p>
+                    </div>
+                }) }
             </div>
 
 
