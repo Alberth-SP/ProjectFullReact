@@ -5,7 +5,7 @@ const app = express();
 var cors = require('cors')
 
 //middleware
-app.use(cors());
+
 
 
 const client = new Client({
@@ -19,12 +19,14 @@ const client = new Client({
 client.connect().then( () => console.log("connect to database")).catch( (e) => console.log(e));
 
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(cors());
+app.use(express.json());
 
 app.post('/api/insert/', (req, res) => {
     const pName = req.body.pName;
     const pCode = req.body.pCode;
     const pDangerous = req.body.pDangerous;
-    console.log(req.body);
+    console.log("BODY ", req.body);
 
     const sqlQuery = "INSERT INTO barrios (code, name, dangerous) values (($1), ($2), ($3))";
     client.query(sqlQuery, [pCode, pName,pDangerous ], (err, result) => {

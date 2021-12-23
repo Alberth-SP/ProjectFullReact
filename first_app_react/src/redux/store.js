@@ -8,6 +8,6 @@ const reducers = combineReducers ({
     reduceItem
 });
 
-const store = createStore(reducers, {data: []}, composeWithDevTools(applyMiddleware(...middleware)));
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(...middleware)));
 
 export default store;
