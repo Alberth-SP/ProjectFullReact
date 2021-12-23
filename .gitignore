@@ -1,23 +1,24 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+/server/node_modules
+/first_app_react/node_modules
+/first_app_react/.pnp
+/first_app_react/.pnp.js
 
 # testing
-/coverage
+/first_app_react/coverage
 
 # production
-/build
+/first_app_react/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+/first_app_react/.DS_Store
+/first_app_react/.env.local
+/first_app_react/.env.development.local
+/first_app_react/.env.test.local
+/first_app_react/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/first_app_react/npm-debug.log*
+/first_app_react/yarn-debug.log*
+/first_app_react/yarn-error.log*

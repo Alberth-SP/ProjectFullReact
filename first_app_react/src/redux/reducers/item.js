@@ -1,17 +1,19 @@
-
 import data from '../../dataset/data.json';
 
-const defaultState = {
-    data
-};
+import Axios from 'axios';
 
-function reduceItem(state = defaultState, {type, payload}) { 
+
+function reduceItem(state = [], {type, payload}) { 
+  
+
   
     switch(type){
+
+        case 'GET_DATA':
+            return payload
         case 'ADD_DATA':
             
-            console.log("CHANGE ...");
-            console.log(payload);
+            
             state = {data: [...state.data, {id: payload.code, name:payload.name, dangerous: payload.danger ? 1:0}] }
             return state
         case 'DELETE_DATA':

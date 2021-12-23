@@ -5,13 +5,9 @@ class Item extends Component {
 
     styleDangerous(){
         return {
-            backgroundColor:  this.props.item.dangerous ? '#db8a8a': '#cde6bc',
-        
-            
+            backgroundColor:  this.props.item.dangerous ? '#db8a8a': '#cde6bc'
         }
-    }
-
- 
+    } 
 
     render() {
         const {item} = this.props;

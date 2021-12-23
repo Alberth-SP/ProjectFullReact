@@ -6,7 +6,24 @@ import DataForm from './components/DataForm';
 import Test from './components/Test';
 import Comments from './components/Comments';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-
+//const mongoose = require('mongoose');
+//import * as mongoose from "mongoose";
+//const mongodbURI= "mongodb+srv://alberthsp:Mpg_qwerty123@clustertest.bvxhd.mongodb.net/db_barrios?retryWrites=true&w=majority";
+//console.log("jajaj",mongoose)
+//const connection = async () => {
+//mongoose.connect(mongodbURI,{}).then( () => console.log("Connecting ...")).catch( (e) => console.log(e))
+//}
+/*
+mongoose.connect(mongodbURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify:true,
+  useCreateIndex:true
+  })
+  .then( (db) => console.log("Mongo DB is connect .."))
+  .catch((e) => console.log(e))
+  */
+//connection()
 class App extends Component {
 
 
@@ -54,6 +71,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        
         <h1> Lista de Barrios</h1>
           <div className="father">
             <div  > 
