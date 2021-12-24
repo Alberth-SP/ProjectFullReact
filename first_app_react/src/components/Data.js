@@ -6,12 +6,11 @@ class Data extends Component {
 
     componentDidMount(){
         this.props.getDatas();
-        
     }
 
     styleDanger(danger){
         return {
-            backgroundColor: danger===true ? '#db8a8a': '#cde6bc'
+            backgroundColor: danger === true ? '#db8a8a': '#cde6bc'
         }
     }
 

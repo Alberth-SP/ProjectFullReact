@@ -1,20 +1,19 @@
 import React , {Component } from 'react';
 import {connect} from 'react-redux';
 import { addData } from '../redux/actions/item';
-import {Formik, Form, Field, FieldProps} from 'formik';
+import {Formik, Form, Field} from 'formik';
 
 class DataForm extends Component {
 
     render() {
         return (
-            <>
-            
             <Formik 
                 initialValues={{
                     code: "",
                     name: "",
                     danger: false
                 }}
+
                 onSubmit={ (values, {resetForm}) => {               
                     this.props.addData(values);
                     resetForm();
@@ -33,7 +32,7 @@ class DataForm extends Component {
 
                             />
                         </div>
-                        <div v className="for_input1">
+                        <div  className="for_input1">
                             <label htmlFor="name">Name</label>
                             <Field 
                                 type="text"  
@@ -41,7 +40,7 @@ class DataForm extends Component {
                                 name="name"
                         />
                         </div>
-                        <div v className="for_input2" >
+                        <div  className="for_input2" >
                             <label htmlFor='danger'>Danger</label>
                             <Field 
                                 type="checkbox" 
@@ -50,13 +49,8 @@ class DataForm extends Component {
                         </div>
                         <button type="submit"> Create</button>
                     </Form>
-
                 )}
-                
-                
             </Formik>
-            </>
-            
         )
     }
 }

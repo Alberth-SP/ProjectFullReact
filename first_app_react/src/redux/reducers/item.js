@@ -1,38 +1,23 @@
 import data from '../../dataset/data.json';
 
-import Axios from 'axios';
-
 
 function reduceItem(state = [], {type, payload}) { 
     switch(type){
         case 'GET_DATA':
             return payload
-        case 'ADD_DATA':  
-            //state = {data: [...state.data, {id: payload.code, name:payload.name, dangerous: payload.danger ? 1:0}] }
+        case 'ADD_DATA':
             return [...state, { code: payload.pCode, name: payload.pName, dangerous: payload.pDangerous}]
         case 'DELETE_DATA':
-            /*
-            const newState = state.data.filter( (it) => {
-                if(it.id !== payload){
-                    return it
-                }
-            })
-            state = { data: newState}
-            */
-            return state
+            const newState = state.filter( it => it.code !== payload);            
+            return newState
         case 'CHANGE_STATE':
-            /*
-            const newSate = state.data.filter( (it) => {
-                if(it.id !== payload.id){
-                    return it
+            const newState2 = state.map( (it) => {
+                if(it.code === payload){
+                    it.dangerous = !it.dangerous
                 }
-                else{
-                    it.dangerous = (1+it.dangerous)%2;
-                    return it
-                }
-            })
-            state = { data: newSate}*/
-            return state
+                return it
+            });
+            return newState2
         default:
             return state
     }

@@ -1,32 +1,34 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Client } = require('pg');
+const dotEnv = require('dotenv').config();
 const app = express();
-var cors = require('cors')
-
-//middleware
+var cors = require('cors');
 
 
 
+
+//connect to database
 const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    port: '5432',
-    database: 'bd_barrios',
-    password: 'postgres'
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD
 });
 
 client.connect().then( () => console.log("connect to database")).catch( (e) => console.log(e));
-
+//middleware
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(cors());
 app.use(express.json());
 
+// list api's
 app.post('/api/insert/', (req, res) => {
     const pName = req.body.pName;
     const pCode = req.body.pCode;
     const pDangerous = req.body.pDangerous;
-    console.log("BODY ", req.body);
+ 
 
     const sqlQuery = "INSERT INTO barrios (code, name, dangerous) values (($1), ($2), ($3))";
     client.query(sqlQuery, [pCode, pName,pDangerous ], (err, result) => {
@@ -42,7 +44,6 @@ app.post('/api/insert/', (req, res) => {
 app.get('/api/getItem/:code', (req, res) => {
 
     const pCode = req.params.code;
-    console.log(pCode)
     const sqlQuery = "Select * from barrios where code = ($1)";
     client.query(sqlQuery, [pCode], (err, result) => {
         if(err){

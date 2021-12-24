@@ -1,6 +1,4 @@
 import Axios from 'axios';  
-
-
 const type = "GET_DATA";
 
 const getDatas = () => async dispatch =>  {
@@ -16,7 +14,7 @@ const getDatas = () => async dispatch =>  {
     catch(e){
         dispatch({
             type,
-            payload: console.log("AKIII",e)
+            payload: console.log(e)
         })
     }
 }
@@ -57,7 +55,7 @@ const deleteData = (id) => async dispatch =>  {
 
         dispatch({
             type: 'DELETE_DATA',
-            payload: res.data
+            payload: id
         })
     }
     catch(err){
@@ -72,19 +70,17 @@ const deleteData = (id) => async dispatch =>  {
 const changeState = (id) => async dispatch => {
     try{
 
-        const url = 'http://localhost:4000/api/getItem/' + id
+        const url = 'http://localhost:4000/api/getItem/' + id;
         const res = await Axios.get(url, { });
-        
-
         const res2 = await Axios.post('http://localhost:4000/api/update/', {
             pCode: res.data[0].code,
             pName: res.data[0].name,
             pDangerous: !res.data[0].dangerous
         });
-        console.log(res.data)
+
         dispatch ({
             type:'CHANGE_STATE',
-            payload: res.data
+            payload: id
         })
     }
     catch(err){
